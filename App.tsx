@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import {
-  SafeAreaView,
+  Image,
   StatusBar,
   StyleSheet,
   View,
@@ -10,13 +10,13 @@ import {
 import Graph from "./components/Graph.tsx";
 import Cards from "./components/Cards.tsx";
 import axios from 'axios';
+import Bottom from "./components/Bottom.tsx";
 
 
 function App(): React.JSX.Element {
-  const [data, setData] = React.useState({metal: {}, stock: {}});
-
+  const [data, setData] = React.useState({});
   const getPrice = async () => {
-    const response = await axios.get('http://localhost:8000/stock');
+    const response = await axios.get('http://192.168.1.31:80/stock');
     if (response.status !== 200) {
       throw new Error('Invalid response status');
     }
@@ -49,8 +49,10 @@ function App(): React.JSX.Element {
           backgroundColor={backgroundStyle.backgroundColor}
       />
 
+      <Image source={require("./src/VDA.jpg")} style={{resizeMode: "stretch", width: "100%", height: 100}}/>
       <Graph/>
       <Cards data={data}/>
+      <Bottom/>
 
     </View>
   );

@@ -16,7 +16,7 @@ import Bottom from "./components/Bottom.tsx";
 function App(): React.JSX.Element {
   const [data, setData] = React.useState({});
   const getPrice = async () => {
-    const response = await axios.get('http://192.168.1.31:80/stock');
+    const response = await axios.get('http://3.109.185.139/stock');
     if (response.status !== 200) {
       throw new Error('Invalid response status');
     }

@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, Image, ScrollView, Dimensions} from 'react-native'
 import Card from "./Card.tsx";
 
-const height = Dimensions.get("window").height - 305;
+const height = Dimensions.get("window").height - 405;
 
 function Category(props: any) {
   return <>
@@ -30,6 +30,11 @@ const Cards = (props: any) => {
                 }
             )
         }
+
+        {Object.keys(props.data).length === 0 &&
+            <Text style={[styles.heading, {textAlign: "center"}]}>Loading...</Text>
+        }
+
         {/*<Category {...props}/>*/}
 
 
@@ -42,7 +47,7 @@ const Cards = (props: any) => {
         {/*  <Image source={require("../src/gold.png")} style={{height: 48, width: 48}}/>*/}
         {/*</Card>*/}
 
-        <View style={{height: 30}}/>
+        <View style={{height: 100}}/>
 
       </ScrollView>
   );

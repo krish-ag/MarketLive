@@ -4,6 +4,16 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 
 
 const Card = (props: any) => {
+  const [color, setColor] = React.useState("#26364c");
+  React.useEffect(() => {
+    if (props.color) {
+      setColor(props.color);
+      setTimeout(() => {
+        setColor("#26364c");
+      }, 500);
+    }
+  }, [props.color]);
+
   return (
       <TouchableOpacity style={styles.card}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -36,7 +46,7 @@ const Card = (props: any) => {
         </View>
 
         <View style={styles.current}>
-          <Text style={styles.currentText}>{props.current}</Text>
+          <Text style={[styles.currentText, {color}]}>{props.current}</Text>
         </View>
 
       </TouchableOpacity>

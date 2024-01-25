@@ -8,11 +8,13 @@ function Category(props: any) {
   return <>
     <Text style={styles.heading}>{props.category} Rates:</Text>
     {Object.keys(props.data[props.category]).map((key: string, index: number) => {
-          const icon = (key === "Gold" || key === "Gold MCX") ? require("../src/gold.png") : (key === "Silver" || key === "Silver MCX") ? require("../src/silver.png") : require("../src/USD.png");
+          const icons: {[key: string]: any} = {"Gold": require("../src/gold.png"), "Silver": require("../src/silver.png"), "USDINR": require("../src/USD.png"), "Nifty 50": require("../src/stocks.png"), "SENSEX": require("../src/stocks.png")};
+          const icon = icons[key];
+
           const data = props.data[props.category][key]
           return (
               <Card key={index} name={key} type={props.category} high={"₹ " + data.high} low={"₹ " + data.low}
-                    current={"₹ " + data.INR}>
+                    current={"₹ " + data.INR} color={data.Color}>
                 <Image source={icon} style={{height: 48, width: 48}}/>
               </Card>
           );
@@ -26,7 +28,7 @@ const Cards = (props: any) => {
       <ScrollView style={styles.container}>
         {props.data &&
             Object.keys(props.data).map((key: string, index: number) => {
-                  return <Category key={index} data={props.data} category={key}/>
+                  return <Category key={index} data={props.data} category={key} colors={props.colors}/>;
                 }
             )
         }

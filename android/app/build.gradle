@@ -74,9 +74,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.vdapulse"
+    namespace "com.krish.vdamarket"
     defaultConfig {
-        applicationId "com.vdapulse"
+        applicationId "com.krish.vdamarket"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

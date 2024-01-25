@@ -1,4 +1,4 @@
-package com.vdapulse
+package com.krish.vdamarket
 
 import android.app.Application
 import com.facebook.react.PackageList

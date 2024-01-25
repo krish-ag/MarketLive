@@ -13,9 +13,8 @@ import Bottom from "./components/Bottom.tsx";
 
 function App(): React.JSX.Element {
   const [data, setData] = React.useState({});
-  const [colors, setColors] = React.useState({});
   const getPrice = async () => {
-    const response = await axios.get('http://3.109.185.139/stock');
+    const response = await axios.get('http://market.gdsubway.in/stock');
     if (response.status !== 200) {
       throw new Error('Invalid response status');
     }
@@ -23,14 +22,6 @@ function App(): React.JSX.Element {
     setData(newData);
 
   }
-
-  // const setup = async () => {
-  //   await getPrice(true);
-  //   const id = setInterval(getPrice, 1500, false);
-  //   return () => {
-  //     clearInterval(id);
-  //   }
-  // }
 
   useEffect(() => {
     getPrice();
@@ -40,15 +31,10 @@ function App(): React.JSX.Element {
     }
   }, []);
 
-// useEffect(() => {
-//   console.log(colors);
-// }, [colors]);
-
-
   const isDarkMode = false;
 
   const backgroundStyle = {
-    backgroundColor: '#eff3fb',
+    backgroundColor: '#000',
   };
 
   return (
@@ -59,14 +45,12 @@ function App(): React.JSX.Element {
         />
 
         <Image source={require("./src/VDA.jpg")} style={{resizeMode: "stretch", width: "100%", height: 100}}/>
-        <Graph/>
-        <Cards data={data} colors={colors}/>
+        {/*<Graph/>*/}
+        <Cards data={data}/>
         <Bottom/>
 
       </View>
   );
 }
-
-const styles = StyleSheet.create({});
 
 export default App;

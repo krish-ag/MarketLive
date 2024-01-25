@@ -20,14 +20,14 @@ const Graph = () => {
         legend: ["SILVER"]
       };
       const chartConfig = {
-      backgroundColor: "#eff3fb",
-      backgroundGradientFrom: "#eff3fb",
-      backgroundGradientTo: "#eff3fb",
+      backgroundColor: "#000000",
+      backgroundGradientFrom: "#000000",
+      backgroundGradientTo: "#000000",
       propsForBackgroundLines: {
         display: 'none'
       },
 
-      color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+      color: (opacity = 1) => "#eff3fb",
       };
 
       return (

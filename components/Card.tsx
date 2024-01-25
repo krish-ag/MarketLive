@@ -4,12 +4,12 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 
 
 const Card = (props: any) => {
-  const [color, setColor] = React.useState("#26364c");
+  const [color, setColor] = React.useState("#dfe1e5");
   React.useEffect(() => {
     if (props.color) {
       setColor(props.color);
       setTimeout(() => {
-        setColor("#26364c");
+        setColor("#dfe1e5");
       }, 500);
     }
   }, [props.color]);
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#eef2fa',
+    backgroundColor: '#43454a',
     borderRadius: 10,
     padding: 20,
     shadowColor: '#000',
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 15,
     fontWeight: 'bold',
-    color: '#26364c',
+    color: '#dfe1e5',
   },
   type: {
     fontSize: 14,
